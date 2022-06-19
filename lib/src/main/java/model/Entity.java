@@ -22,4 +22,8 @@ public class Entity {
 		return instanceId;
 	}
 	
+	public String toString() {
+		return String.format("Entity %s, id %d \n", this.name, this.instanceId);
+	}
+	
 }

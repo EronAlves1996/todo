@@ -4,12 +4,11 @@ import java.io.File;
 import java.io.IOException;
 
 public class EntryPoint {
-	private File baseFile;
 	public final String MAIN_FILE = "main.json";
+	private File baseFile = new File(MAIN_FILE);
 	
 	public EntryPoint() {
 		try {
-			baseFile = new File(MAIN_FILE);
 			if (baseFile.createNewFile()) {
 				System.out.println("Please put a name to an Entity to start!");
 				EntitiesController x = new EntitiesController(baseFile);
