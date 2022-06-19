@@ -1,15 +1,17 @@
 package model;
 
-public class Entity {
+public class Tasklist {
 	private String name;
+	private Entity fromEntity;
 	private int instanceId;
 	protected static int idController = 0;
 	
-	public Entity(String n) {
-		this.name = n;
+	public Tasklist(String name, Entity fromEntity) {
+		this.name = name;
+		this.fromEntity = fromEntity;
 		this.instanceId = ++idController;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -22,4 +24,8 @@ public class Entity {
 		return instanceId;
 	}
 	
+	public Entity getFromEntity() {
+		return fromEntity;
+	}
+
 }

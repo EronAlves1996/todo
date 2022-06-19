@@ -3,18 +3,19 @@ package model;
 import java.util.Date;
 
 public class Task {
-	private String associatedEntity;
-	private String associatedTasklist;
+	private Tasklist fromTasklist;
+	private int instanceId;
+	protected static int idController = 0;
 	private String name;
 	private boolean done = false;
 	private Date createdAt;
 	private Date doneAt;
 	
-	public Task(String associatedEntity, String associatedTasklist, String name, Date createdAt) {
-		this.associatedEntity = associatedEntity;
-		this.associatedTasklist = associatedTasklist;
+	public Task(Tasklist fromTasklist, String name, Date createdAt) {
+		this.fromTasklist = fromTasklist;
 		this.name = name;
 		this.createdAt = createdAt;
+		this.instanceId = ++idController;
 	}
 
 	public String getName() {
@@ -48,19 +49,11 @@ public class Task {
 		this.doneAt = doneAt;
 	}
 
-	public String getAssociatedEntity() {
-		return associatedEntity;
+	public Tasklist getFromTasklist() {
+		return fromTasklist;
 	}
 
-	public void setAssociatedEntity(String associatedEntity) {
-		this.associatedEntity = associatedEntity;
-	}
-
-	public String getAssociatedTasklist() {
-		return associatedTasklist;
-	}
-
-	public void setAssociatedTasklist(String associatedTasklist) {
-		this.associatedTasklist = associatedTasklist;
+	public int getInstanceId() {
+		return instanceId;
 	}
 }
